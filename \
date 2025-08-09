@@ -1,0 +1,21 @@
+package main
+
+import (
+	"log"
+
+	maelstrom "github.com/jepsen-io/maelstrom/demo/go"
+)
+
+func main() {
+	node := maelstrom.NewNode()
+
+	var ids []int
+
+	node.Handle("broadcast", func(msg maelstrom.Message) error {
+		// Unmarshal the message body as an loosely-typed map.
+		var body map[string]any
+		if err := json.Unmarshal(msg.Body, &body); err != nil {
+			return err
+		}
+	})
+}
