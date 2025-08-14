@@ -61,10 +61,6 @@ func main() {
 		}
 
 		reply := ReadReply{
-			Reply: Reply{
-				Type:      "read_ok",
-				InReplyTo: body.InReplyTo,
-			},
 			Messages: ids,
 		}
 
